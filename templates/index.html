@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <span class="row"><h3>Contact From</h3></span>
+    <div class="row">
+        <div class="col-md-4">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="border: 2px solid blue; margin: 3px; padding: 2px; background-color: aquamarine">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="card card-body">
+                <form action="{{url_for('add_student')}}" method="post">
+                    <div class="form-group mt-2">
+                        <label for="roll" class="form-label">Reg no.</label>
+                        <input type="text" class="form-control" name="reg"  required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="fname"  required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="lname"  required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="lname" class="form-label">Branch</label>
+                        <input type="text" class="form-control" name="branch"  required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" name="email"  required>
+                    </div>
+                    <div class="form-group mt-2 ">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="text" class="form-control" name="mobile" required>
+                    </div>
+                    <button class="btn btn-primary btn-block mt-4 ">
+                        Save
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="col-md-8">
+            <table id="example" class="table table-stripped table-bordered" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th scope="col">Reg</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Branch</th>
+                    <th scope="col">email</th>
+                    <th scope="col">Mobile</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for row in list_student %}
+                    <tr>
+                      <td>{{row[0]}}</td>
+                      <td>{{row[1]}}</td>
+                      <td>{{row[2]}}</td>
+                      <td>{{row[3]}}</td>
+                      <td>{{row[4]}}</td>
+                      <td>{{row[5]}}</td>
+                    </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+        </div> -->
+    </div>
+{% endblock %}
