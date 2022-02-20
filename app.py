@@ -18,21 +18,21 @@ conn_string = "host="+ DB_HOST +" dbname="+ DB_NAME  +" user=" + DB_USER +" pass
 conn=psycopg2.connect(conn_string)
 print("Connected!")
 
-@app.route('/')
-def home():
-    cur = conn.cursor()
-    s = "SELECT * FROM persons"
-    cur.execute(s)
-    list_student = cur.fetchall()
-    return render_template('index.html',list_student=list_student)
-
 # @app.route('/')
 # def home():
-#     # cur = conn.cursor()
-#     # s = "SELECT * FROM person"
-#     # cur.execute(s)
-#     # list_student = cur.fetchall()
-#     return render_template('index.html')
+#     cur = conn.cursor()
+#     s = "SELECT * FROM persons"
+#     cur.execute(s)
+#     list_student = cur.fetchall()
+#     return render_template('index.html',list_student=list_student)
+
+@app.route('/')
+def home():
+    # cur = conn.cursor()
+    # s = "SELECT * FROM person"
+    # cur.execute(s)
+    # list_student = cur.fetchall()
+    return render_template('index.html')
 
 
 @app.route('/add_student',methods=['POST'])
